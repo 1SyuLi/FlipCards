@@ -6,6 +6,11 @@ module.exports = function (api) {
       ["module-resolver", {
         extensions: [".tsx", ".ts", ".js", ".json"],
       }],
-    ]
+    ],
+    env: {
+      production: {
+        plugins: ['react-native-paper/babel'],
+      },
+    },
   };
 };
