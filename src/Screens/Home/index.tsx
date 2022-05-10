@@ -49,8 +49,8 @@ const Home: React.FC = () => {
     };
 
     return (
-        <View>
-            <Animated.View style={[styles.hidden, rotateFront]}>
+        <View style={{ flex: 1, backgroundColor: '#000', alignItems: 'center', justifyContent: 'center' }}>
+            <Animated.View style={[styles.hidden, styles.absolute, rotateFront]}>
 
                 <FlipCard
                     title="Front"
@@ -62,7 +62,7 @@ const Home: React.FC = () => {
 
             </Animated.View>
 
-            <Animated.View style={[styles.hidden, styles.back, rotateBack]}>
+            <Animated.View style={[styles.hidden, styles.absolute, rotateBack]}>
 
                 <FlipCard
                     title="Back"
@@ -91,16 +91,12 @@ const styles = StyleSheet.create({
         width: 200,
         height: 200,
     },
-    back: {
-        position: "absolute",
-        top: 0,
+    absolute: {
+        position: "absolute"
     },
     cardItem: {
         width: "100%",
         height: "100%",
-    },
-    textInput: {
-        fontSize: 18,
     },
 });
 

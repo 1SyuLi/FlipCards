@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     card: {
         width: 200,
         height: 200,
+        backgroundColor: '#fff'
     },
     textInput: {
         fontSize: 18,
