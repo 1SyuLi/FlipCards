@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
 import { View, StyleSheet, Animated, KeyboardAvoidingView } from "react-native";
-import { Button } from "react-native-paper";
 import { FlipCard } from "./FlipCard";
+import FrontImage from '../../assets/front.png';
+import BackImage from '../../assets/back.gif';
 
 const Home: React.FC = () => {
     const animate = useRef(new Animated.Value(0));
@@ -54,10 +55,12 @@ const Home: React.FC = () => {
 
                 <FlipCard
                     title="Front"
+                    image={FrontImage}
                     inputRef={frontRef}
                     onChange={(value) => setFront(value)}
                     value={front}
                     autoFocus={true}
+                    onPress={doAFlip}
                 />
 
             </Animated.View>
@@ -66,14 +69,14 @@ const Home: React.FC = () => {
 
                 <FlipCard
                     title="Back"
+                    image={BackImage}
                     inputRef={backRef}
                     onChange={(value) => setBack(value)}
                     value={back}
+                    onPress={doAFlip}
                 />
 
             </Animated.View>
-
-            <Button onPress={doAFlip}>Flip</Button>
         </View>
     );
 };

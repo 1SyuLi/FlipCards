@@ -1,40 +1,39 @@
 import React from "react";
-import { StyleSheet, TextInput } from "react-native";
+import { StyleSheet, Image, TouchableOpacity, TouchableOpacityProps } from "react-native";
 import { Card, Title } from "react-native-paper";
 
-type Props = {
-    value: string;
-    onChange: (text: string) => void;
-    inputRef: any;
-    title: string;
-    autoFocus?: boolean;
-};
+interface CardProps extends TouchableOpacityProps {
+    image: any;
+}
 
-const FlipCard: React.FC<Props> = ({
-    title,
-    value,
-    onChange,
-    inputRef,
-    autoFocus,
-}) => {
+
+export function FlipCard({ image, ...rest }) {
     return (
-        <Card style={styles.card}>
-            <Card.Content>
-                <Title>{title}</Title>
-            </Card.Content>
-        </Card>
-    );
-};
+        <TouchableOpacity {...rest} activeOpacity={0}>
+            <Card style={styles.card}>
+                <Card.Content>
+                    <Image source={image} style={styles.image} />
+                </Card.Content>
+            </Card>
+        </TouchableOpacity>
+    )
+}
 
 const styles = StyleSheet.create({
     card: {
-        width: 200,
-        height: 200,
-        backgroundColor: '#fff'
+        width: 300,
+        height: 400,
+        backgroundColor: 'transparent',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     textInput: {
         fontSize: 18,
     },
+    image: {
+        width: 300,
+        height: 400,
+        resizeMode: 'contain',
+        marginTop: -20,
+    }
 });
-
-export { FlipCard };    
